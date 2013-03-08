@@ -14,15 +14,15 @@
  */
 
 Ext.define('Payback.view.myDebtListItem', {
-    extend: 'Ext.dataview.component.DataItem',
+    extend: 'Ext.dataview.component.ListItem',
     alias: 'widget.myDebtListItem',
 
     config: {
-        cls: 'x-list-item',
+        //cls: 'x-list-item',
         items: [
             {
                 xtype: 'container',
-                baseCls: 'x-list-item-label',
+                //baseCls: 'x-list-item-label',
                 itemId: 'debtListItemDetail',
                 tpl: [
                     '<div>   ',
@@ -98,7 +98,11 @@ Ext.define('Payback.view.myDebtListItem', {
     updateRecord: function(newRecord, oldRecord) {
         //this stops propagation of event in deleteButtonTap and allows the record to be deleted from the store
         this.callParent(arguments);
-
+        
+        if (!newRecord) {
+            return; // removal, not update
+        }
+        
         newRecord.getData(true);
         this.child('component').setData(newRecord.data);
     }

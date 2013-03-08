@@ -38,9 +38,9 @@ Ext.define('Payback.view.Debts', {
                 ]
             },
             {
-                xtype: 'dataview',
-                baseCls: 'x-list',
-                cls: 'x-list-normal',
+                xtype: 'list',
+                //baseCls: 'x-list',
+                //cls: 'x-list-normal',
                 id: 'myDebtDataView',
                 disableSelection: true,
                 defaultType: 'myDebtListItem',
