@@ -135,7 +135,22 @@ Ext.define('Payback.view.DebtDetail', {
                 ]
             },
             {
-                xtype: 'container',
+                xtype: 'list',
+                layout: 'auto',
+                flex: 1,
+                //baseCls: 'x-list',
+                //cls: 'x-list-normal',
+                id: 'myPaymentDataView',
+                itemId: 'myPaymentDataView',
+                minHeight: '',
+                padding: '0 22px',
+                style: 'color: white;',
+                disableSelection: true,
+                scrollable: false,
+                //height: 200,
+                defaultType: 'myPaymentListItem',
+                store: 'Payments',
+                useComponents: true,
                 items: [
                     {
                         xtype: 'label',
@@ -143,21 +158,8 @@ Ext.define('Payback.view.DebtDetail', {
                         id: 'paymentHistoryLabel',
                         margin: '0 12px',
                         padding: '0 0 8px 8px',
-                        style: 'font-size: .8em; font-weight: bold;color: gray;border-bottom: 2px solid #333;'
-                    },
-                    {
-                        xtype: 'dataview',
-                        baseCls: 'x-list',
-                        cls: 'x-list-normal',
-                        id: 'myPaymentDataView',
-                        itemId: 'myPaymentDataView',
-                        minHeight: '',
-                        padding: '0 22px',
-                        style: 'color: white;',
-                        disableSelection: true,
-                        defaultType: 'myPaymentListItem',
-                        store: 'Payments',
-                        useComponents: true
+                        style: 'font-size: .8em; font-weight: bold;color: gray;border-bottom: 2px solid #333;',
+                        docked: 'top'
                     }
                 ]
             }
