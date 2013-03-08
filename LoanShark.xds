@@ -1,9 +1,9 @@
 {
     "name": "LoanShark",
     "settings": {
-        "urlPrefix": "http://localhost:8888/loanshark",
+        "urlPrefix": "http://localhost/~erand/loanshark",
         "spacesToIndent": 4,
-        "exportPath": "/Users/ericbowden/Documents/repos/loanshark2",
+        "exportPath": "/Users/erand/Sites/loanshark",
         "sdkPath": "",
         "lineEnding": "",
         "genTimestamps": false,
@@ -13,7 +13,8 @@
         "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
         "instantiateStore": true,
         "saveOnDeploy": false,
-        "appName": "MyApp"
+        "appName": "MyApp",
+        "buildShouldOverwriteIndex": true
     },
     "xdsVersion": "2.2.0",
     "xdsBuild": 840,
@@ -214,6 +215,22 @@
                 "metadata/resource/js"
             ],
             "className": "js"
+        },
+        "5c01146c-2dcf-4e2d-bca6-71e064a87baa": {
+            "paths": [
+                "metadata/view/myListItem",
+                "app/view/override/myListItem.js",
+                "app/view/myListItem.js"
+            ],
+            "className": "myListItem"
+        },
+        "ed22df60-2738-42fd-b5ad-c01f90432c61": {
+            "paths": [
+                "metadata/view/ContactListItem",
+                "app/view/override/ContactListItem.js",
+                "app/view/ContactListItem.js"
+            ],
+            "className": "ContactListItem"
         }
     },
     "viewOrderMap": {
@@ -227,7 +244,9 @@
             "2b83fda6-da12-4c2f-a259-389ef8f3e683",
             "ed8e32a8-2bee-4972-82cc-60fdcab2e506",
             "9290d4e2-55ef-4f81-b844-ff9efd351b2b",
-            "8ee13c44-dec0-4ae8-b3a8-ed30c67f9f80"
+            "8ee13c44-dec0-4ae8-b3a8-ed30c67f9f80",
+            "5c01146c-2dcf-4e2d-bca6-71e064a87baa",
+            "ed22df60-2738-42fd-b5ad-c01f90432c61"
         ],
         "store": [
             "5c1a3711-4411-4d34-a283-c9149d1e681e",

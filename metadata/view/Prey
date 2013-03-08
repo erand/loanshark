@@ -52,26 +52,50 @@
             ]
         },
         {
-            "type": "Ext.dataview.DataView",
+            "type": "Ext.dataview.List",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "baseCls": "x-list",
                 "cls": [
                     "x-list-normal"
                 ],
                 "id": "myContactDataView",
                 "itemId": "myContactDataView",
-                "designer|userClassName": "MyDataView1",
+                "designer|userClassName": "MyList",
                 "disableSelection": true,
-                "defaultType": "myContactListItem",
-                "store": "People",
-                "useComponents": true
+                "defaultType": null,
+                "store": "People"
             },
-            "designerId": "4ac5e8a7-d1a3-4585-b087-a39a2a60d253"
+            "designerId": "4ac5e8a7-d1a3-4585-b087-a39a2a60d253",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "itemTpl",
+                        "implHandler": [
+                            "<div>",
+                            "<div style=\"margin-right:.5em;float:left;width:1.1em;height:1.1em;background-color:orange;-webkit-mask-image: url('resources/images/user_business.png');-webkit-mask-size: 1.1em;\"></div>",
+                            "",
+                            "{name}",
+                            "<b class='money-label' style='float: right;color:red;'>",
+                            "{[(values.balance<0)?'-':'']}${[Math.abs(values.balance).toFixed(2)]}",
+                            "</b>",
+                            "<br>",
+                            "</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "143e3d69-3859-42ad-9780-8078f97b8b09"
+                }
+            ]
         }
     ]
 }
