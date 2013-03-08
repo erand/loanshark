@@ -42,17 +42,7 @@ Ext.define('Payback.view.Prey', {
                 id: 'myContactDataView',
                 itemId: 'myContactDataView',
                 disableSelection: true,
-                itemTpl: [
-                    '<div>',
-                    '<div style="margin-right:.5em;float:left;width:1.1em;height:1.1em;background-color:orange;-webkit-mask-image: url(\'resources/images/user_business.png\');-webkit-mask-size: 1.1em;"></div>',
-                    '',
-                    '{name}',
-                    '<b class=\'money-label\' style=\'float: right;color:red;\'>',
-                    '{[(values.balance<0)?\'-\':\'\']}${[Math.abs(values.balance).toFixed(2)]}',
-                    '</b>',
-                    '<br>',
-                    '</div>'
-                ],
+                defaultType: 'myContactListItem',
                 store: 'People'
             }
         ]
