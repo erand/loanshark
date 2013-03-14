@@ -70,7 +70,7 @@ Ext.define('Payback.view.ContactDetail', {
                     {
                         xtype: 'button',
                         cls: 'my-buttons',
-                        id: 'addDebt',
+                        id: 'addContactDebt',
                         margin: '10px 10px 5px 10px',
                         style: 'border-radius: 0; color: black;',
                         ui: 'gray-light-button',
@@ -102,7 +102,19 @@ Ext.define('Payback.view.ContactDetail', {
                 ]
             },
             {
-                xtype: 'container',
+                xtype: 'list',
+                layout: 'fit',
+                flex: 1,
+                //baseCls: 'x-list',
+                //cls: 'x-list-normal',
+                id: 'myContactDebtDataView',
+                padding: '0 22px',
+                disableSelection: true,
+                style: 'color: white',
+                defaultType: 'myDebtListItem',
+                store: 'Debts',
+                useComponents: true,
+                scrollable: false,
                 items: [
                     {
                         xtype: 'label',
@@ -110,18 +122,8 @@ Ext.define('Payback.view.ContactDetail', {
                         id: 'loanHistoryLabel',
                         margin: '0 12px',
                         padding: '0 0 8px 8px',
-                        style: 'font-size: .8em; font-weight: bold;color: gray;border-bottom: 2px solid #333;'
-                    },
-                    {
-                        xtype: 'dataview',
-                        baseCls: 'x-list',
-                        cls: 'x-list-normal',
-                        id: 'myDebtDataView',
-                        padding: '0 22px',
-                        disableSelection: true,
-                        defaultType: 'myDebtListItem',
-                        store: 'Debts',
-                        useComponents: true
+                        style: 'font-size: .8em; font-weight: bold;color: gray;border-bottom: 2px solid #333;',
+                        docked: 'top'
                     }
                 ]
             }
@@ -136,8 +138,8 @@ Ext.define('Payback.view.ContactDetail', {
 
     onFormpanelShow: function(component, eOpts) {
 
-        //refresh Debt dataview
-        this.down('dataview').refresh();
+        //refresh Debt list
+        this.down('list').refresh();
 
         //remove person label in debt dataview when viewed from contact detail
         Ext.select('.x-form .debt-person-label').setStyle({display:'none'});

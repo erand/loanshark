@@ -69,16 +69,19 @@ Ext.define('Payback.view.DebtDetail', {
             },
             {
                 xtype: 'container',
+                layout: 'vbox',
                 margin: '0 0 10px 0',
                 items: [
                     {
                         xtype: 'label',
+                        flex:1,
                         height: 100,
                         id: 'debtHeaderLabel',
                         style: 'font-weight: bold;text-align: center; font-size: 75px;background-color: #FE8A28; color: white;'
                     },
                     {
                         xtype: 'button',
+                        flex:1,
                         cls: 'my-buttons',
                         id: 'addPayment',
                         margin: '10px 10px 5px 10px',
@@ -89,6 +92,7 @@ Ext.define('Payback.view.DebtDetail', {
                     },
                     {
                         xtype: 'fieldset',
+                        flex:5,
                         itemId: 'myfieldset1',
                         items: [
                             {
@@ -136,7 +140,7 @@ Ext.define('Payback.view.DebtDetail', {
             },
             {
                 xtype: 'list',
-                layout: 'auto',
+                layout: 'fit',
                 flex: 1,
                 //baseCls: 'x-list',
                 //cls: 'x-list-normal',

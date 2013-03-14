@@ -35,7 +35,7 @@ Ext.define('Payback.controller.Contact', {
                 xtype: 'ContactDetail'
             },
             myContactDataView: '#myContactDataView',
-            myDebtDataView: '#myDebtDataView',
+            myDebtDataView: '#myContactDebtDataView',
             contactHeaderLabel: '#contactHeaderLabel',
             loanHistoryLabel: '#loanHistoryLabel',
             addContactButton: '#addContact',
@@ -69,8 +69,8 @@ Ext.define('Payback.controller.Contact', {
         Ext.getStore('Debts').clearFilter();
 
         //hides buttons and debt data view on new contacts
-        form.down('#addDebt').hide();
-        form.down('dataview').hide();
+        form.down('#addContactDebt').hide();
+        form.down('list').hide();
         this.getContactHeaderLabel().hide();
         this.getLoanHistoryLabel().hide();
 
@@ -107,7 +107,7 @@ Ext.define('Payback.controller.Contact', {
         this.getContactDetail().reset();
 
         //refresh debt panel dataview with any new data
-        this.getMainView().getInnerItems()[1].down('dataview').refresh();
+        this.getMainView().getInnerItems()[1].down('list').refresh();
 
         //update url
         this.getApplication().getHistory().add(new Ext.app.Action({
@@ -172,7 +172,7 @@ Ext.define('Payback.controller.Contact', {
 
         //show items if hidden
         debtDataView.show();
-        form.down('#addDebt').show();
+        form.down('#addContactDebt').show();
         this.getContactHeaderLabel().show();
         this.getLoanHistoryLabel().show();
 
