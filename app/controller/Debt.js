@@ -51,6 +51,10 @@ Ext.define('Payback.controller.Debt', {
                 itemswipe: 'onDataviewItemSwipe',
                 itemtap: 'onDataviewItemTap'
             },
+            "#myContactDebtDataView": { // same handling for the debt list in contact list
+                itemswipe: 'onDataviewItemSwipe',
+                itemtap: 'onDataviewItemTap'
+            },
             "#emailDebt": {
                 tap: 'onEmailDebtTap'
             }
