@@ -13,6 +13,11 @@
  * Do NOT hand edit this file.
  */
 
+Ext.Loader.setPath({
+    'Ext.io': './io/src/io'  
+});
+
+
 Ext.Loader.setConfig({
     disableCaching: false
 });
@@ -42,6 +47,7 @@ Ext.application({
         'myPaymentListItem'
     ],
     controllers: [
+        'Ext.io.Controller',
         'Contact',
         'Summary',
         'Debt',
@@ -62,7 +68,13 @@ Ext.application({
         '768x1004': 'resources/images/splash/loading/Default~ipad',
         '748x1024': 'resources/images/splash/loading/Default-Landscape~ipad.png'
     },
-
+    
+    io: {
+        appId: '117009f4-5382-4a92-b72b-16a73969094e',
+        authOnStartup: true,
+        manualLogin: false,
+    },
+    
     launch: function() {
 
         Ext.create('Payback.view.MainView', {fullscreen: true});
