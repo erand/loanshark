@@ -31,7 +31,13 @@ Ext.define('Payback.store.PeopleStore', {
                 fn: 'onPeopleStoreLoad',
                 event: 'load'
             }
-        ]
+        ],
+        
+        proxy: {
+            type: 'syncstorage',
+            id: 'peoplestore'
+        }
+        
     },
 
     onPeopleStoreLoad: function(store, records, successful, operation, eOpts) {
