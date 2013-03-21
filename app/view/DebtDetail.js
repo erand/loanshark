@@ -69,6 +69,7 @@ Ext.define('Payback.view.DebtDetail', {
             },
             {
                 xtype: 'container',
+                flex:1,
                 layout: 'vbox',
                 margin: '0 0 10px 0',
                 items: [
