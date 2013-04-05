@@ -19,7 +19,8 @@ Ext.define('Payback.model.Debt', {
 
     uses: [
         'Payback.model.Payment',
-        'Payback.model.Person'
+        'Payback.model.Person',
+        'Ext.io.data.Proxy'
     ],
 
     config: {
@@ -66,8 +67,9 @@ Ext.define('Payback.model.Debt', {
             }
         },
         proxy: {
-            type: 'localstorage',
-            id: 'Debts'
+            type: 'syncstorage',
+            id: 'debtStore',
+            owner: 'user'
         },
         belongsTo: {
             model: 'Payback.model.Person',

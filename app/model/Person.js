@@ -25,8 +25,9 @@ Ext.define('Payback.model.Person', {
             type: 'uuid'
         },
         proxy: {
-            type: 'localstorage',
-            id: 'Person'
+            type: 'syncstorage',
+            id: 'peopleStore',
+            owner: 'user',
         },
         hasMany: {
             associationKey: 'person_id',

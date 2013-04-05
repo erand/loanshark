@@ -21,7 +21,7 @@ Ext.define('Payback.store.PeopleStore', {
     ],
 
     config: {
-        autoLoad: true,
+        autoLoad: false,
         autoSync: true,
         groupField: 'name',
         model: 'Payback.model.Person',
@@ -35,7 +35,8 @@ Ext.define('Payback.store.PeopleStore', {
         
         proxy: {
             type: 'syncstorage',
-            id: 'peoplestore'
+            id: 'peopleStore',
+            owner: 'user',
         }
         
     },

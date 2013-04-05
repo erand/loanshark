@@ -14,9 +14,11 @@
  */
 
 Ext.Loader.setPath({
-    'Ext.io': './io/src/io'  
+    'Ext.io': './io/src/io',
+    'Ext.cf': './io/src/cf'
 });
 
+Ext.require(['Ext.io.Io', 'Ext.io.data.Proxy']);
 
 Ext.Loader.setConfig({
     disableCaching: false
@@ -73,11 +75,19 @@ Ext.application({
         appId: '117009f4-5382-4a92-b72b-16a73969094e',
         authOnStartup: true,
         manualLogin: false,
+        logLevel: 'debug',
     },
     
     launch: function() {
 
         Ext.create('Payback.view.MainView', {fullscreen: true});
+        this.getApplication().sio.on("authorized", this.syncStores);
+    },
+    
+    syncStores: function() {
+        console.log("Authenticated");
+        Ext.getStore("People").sync();
+        Ext.getStore("Debts").sync();
     }
 
 });

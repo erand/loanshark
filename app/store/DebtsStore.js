@@ -21,7 +21,7 @@ Ext.define('Payback.store.DebtsStore', {
     ],
 
     config: {
-        autoLoad: true,
+        autoLoad: false,
         groupDir: 'DESC',
         groupField: 'date',
         model: 'Payback.model.Debt',
@@ -31,6 +31,13 @@ Ext.define('Payback.store.DebtsStore', {
                 return record.get('date');
             },
             direction: 'DESC'
+        },
+        
+        proxy: {
+            type: 'syncstorage',
+            id: 'debtStore',
+            owner: 'user'
         }
+
     }
 });

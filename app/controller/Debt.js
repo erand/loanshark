@@ -106,7 +106,7 @@ Ext.define('Payback.controller.Debt', {
             person = this.getDebtDetail().down('selectfield').record; //gets person from selectfield
 
             values.amount = (values.amount)?values.amount.toFixed(2):0;
-
+        
 
         if(record) { //edit old record
 
