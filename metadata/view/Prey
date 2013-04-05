@@ -1,5 +1,5 @@
 {
-    "type": "panel",
+    "type": "Ext.Panel",
     "reference": {
         "name": "items",
         "type": "array"
@@ -8,27 +8,29 @@
     "userConfig": {
         "designer|userClassName": "Prey",
         "designer|userAlias": "Prey",
+        "requires": [
+            "Payback.view.myContactListItem"
+        ],
         "layout": "fit"
     },
-    "id": "ExtBox1-ext-gen2255",
     "designerId": "dde4c54b-3964-4d6d-927f-dbd7c91717bc",
     "cn": [
         {
-            "type": "titlebar",
+            "type": "Ext.TitleBar",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyTitleBar",
                 "docked": "bottom",
+                "designer|userClassName": "MyTitleBar",
                 "title": null
             },
             "designerId": "7bd1cc98-6a12-453d-88ab-fc76a1009441",
             "cn": [
                 {
-                    "type": "button",
+                    "type": "Ext.Button",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -36,11 +38,13 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "designer|userClassName": "MyButton",
-                        "cls": "my-buttons",
+                        "cls": [
+                            "my-buttons"
+                        ],
                         "id": "addContact",
                         "itemId": null,
                         "ui": null,
+                        "designer|userClassName": "MyButton",
                         "iconAlign": null,
                         "iconCls": "icon-add-contact",
                         "iconMask": true,
@@ -51,24 +55,22 @@
             ]
         },
         {
-            "type": "dataview",
+            "type": "Ext.dataview.List",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MyDataView1",
-                "baseCls": "x-list",
                 "cls": [
                     "x-list-normal"
                 ],
                 "id": "myContactDataView",
                 "itemId": "myContactDataView",
+                "designer|userClassName": "MyList",
+                "disableSelection": true,
                 "defaultType": "myContactListItem",
-                "store": "People",
-                "useComponents": true,
-                "disableSelection": true
+                "store": "People"
             },
             "designerId": "4ac5e8a7-d1a3-4585-b087-a39a2a60d253"
         }
