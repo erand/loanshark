@@ -1,9 +1,9 @@
 {
     "name": "LoanShark",
     "settings": {
-        "urlPrefix": "http://localhost:8888/loanshark",
+        "urlPrefix": "http://localhost/~erand/loanshark",
         "spacesToIndent": 4,
-        "exportPath": "/Users/ericbowden/Documents/repos/loanshark2",
+        "exportPath": "/Users/erand/Sites/loanshark",
         "sdkPath": "",
         "lineEnding": "",
         "genTimestamps": false,
@@ -13,12 +13,13 @@
         "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
         "instantiateStore": true,
         "saveOnDeploy": false,
-        "appName": "MyApp"
+        "appName": "MyApp",
+        "buildShouldOverwriteIndex": true
     },
-    "xdsVersion": "2.1.0",
-    "xdsBuild": 670,
+    "xdsVersion": "2.2.0",
+    "xdsBuild": 927,
     "schemaVersion": 1,
-    "upgradeVersion": 210000000498,
+    "upgradeVersion": 210000000500,
     "framework": "touch21",
     "topInstanceFileMap": {
         "9c7e563e-7ff0-4ba7-9556-9c0d6c286927": {
@@ -143,11 +144,11 @@
         },
         "ed8e32a8-2bee-4972-82cc-60fdcab2e506": {
             "paths": [
-                "metadata/view/myContactListItem",
-                "app/view/override/myContactListItem.js",
-                "app/view/myContactListItem.js"
+                "metadata/view/OldmyContactListItem",
+                "app/view/override/OldmyContactListItem.js",
+                "app/view/OldmyContactListItem.js"
             ],
-            "className": "myContactListItem"
+            "className": "OldmyContactListItem"
         },
         "e7c5fb19-7a4d-48aa-b3d6-2f33416c14ba": {
             "paths": [
@@ -215,13 +216,13 @@
             ],
             "className": "js"
         },
-        "52c2451e-ca75-479b-ad33-232f2a4eae28": {
+        "61f5fbf4-7d85-4d1b-a55a-79cdd0ef214f": {
             "paths": [
-                "metadata/resource/PackageSettings",
-                "",
-                "PackageSettings.json"
+                "metadata/view/myContactListItem",
+                "app/view/override/myContactListItem.js",
+                "app/view/myContactListItem.js"
             ],
-            "className": "PackageSettings"
+            "className": "myContactListItem"
         }
     },
     "viewOrderMap": {
@@ -235,7 +236,8 @@
             "2b83fda6-da12-4c2f-a259-389ef8f3e683",
             "ed8e32a8-2bee-4972-82cc-60fdcab2e506",
             "9290d4e2-55ef-4f81-b844-ff9efd351b2b",
-            "8ee13c44-dec0-4ae8-b3a8-ed30c67f9f80"
+            "8ee13c44-dec0-4ae8-b3a8-ed30c67f9f80",
+            "61f5fbf4-7d85-4d1b-a55a-79cdd0ef214f"
         ],
         "store": [
             "5c1a3711-4411-4d34-a283-c9149d1e681e",
@@ -258,8 +260,7 @@
         "resource": [
             "ce8f1709-75f8-4f81-b948-890b2047ecd8",
             "e0fc0f11-5bd9-4b48-890e-e5d786ed821d",
-            "87119690-45e1-432b-bbc9-b1f91c965bb3",
-            "52c2451e-ca75-479b-ad33-232f2a4eae28"
+            "87119690-45e1-432b-bbc9-b1f91c965bb3"
         ],
         "app": [
             "application"

@@ -1,5 +1,5 @@
 {
-    "type": "application",
+    "type": "Ext.app.Application",
     "reference": {
         "name": "items",
         "type": "array"
@@ -23,11 +23,19 @@
             "MainView",
             "myDebtListItem",
             "ContactDetail",
-            "myContactListItem",
+            "OldmyContactListItem",
             "Debts",
             "Prey",
             "PaymentDetail",
-            "myPaymentListItem"
+            "myPaymentListItem",
+            "myContactListItem"
+        ],
+        "controllers": [
+            "Contact",
+            "Summary",
+            "Debt",
+            "Payment",
+            "Routing"
         ],
         "icon": [
             "{",
@@ -51,29 +59,20 @@
             "",
             ""
         ],
-        "statusBarStyle": null,
-        "controllers": [
-            "Contact",
-            "Summary",
-            "Debt",
-            "Payment",
-            "Routing"
-        ]
+        "statusBarStyle": null
     },
-    "id": "ExtBox1-ext-gen2164",
     "designerId": "application",
     "cn": [
         {
-            "type": "loader",
+            "type": "Ext.Loader",
             "reference": {
                 "name": "loader",
                 "type": "object"
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "Loader",
                 "disableCaching": false,
-                "enabled": true
+                "designer|userClassName": "Loader"
             },
             "designerId": "5be3ef8a-0f0e-484d-a1cc-08041ef1ba4d"
         }
