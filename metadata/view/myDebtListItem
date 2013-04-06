@@ -52,7 +52,7 @@
             "            }",
             "        ]"
         ],
-        "onItemDisclosure": false,
+        "onItemDisclosure": null,
         "designer|userClassName": "myDebtListItem",
         "designer|userAlias": "myDebtListItem",
         "extend": "Ext.dataview.component.ListItem"

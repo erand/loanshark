@@ -86,7 +86,8 @@
                 "designer|userAlias": "mydataview",
                 "disableSelection": true,
                 "defaultType": "myDebtListItem",
-                "store": "Debts"
+                "store": "Debts",
+                "onItemDisclosure": false
             },
             "designerId": "0a92a9aa-35d9-469a-878f-2160b3fdbc29"
         }

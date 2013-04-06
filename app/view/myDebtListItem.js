@@ -18,7 +18,6 @@ Ext.define('Payback.view.myDebtListItem', {
     alias: 'widget.myDebtListItem',
 
     config: {
-        onItemDisclosure: false,
         items: [
             {
                 xtype: 'container',
