@@ -128,11 +128,11 @@
         },
         "9290d4e2-55ef-4f81-b844-ff9efd351b2b": {
             "paths": [
-                "metadata/view/myDebtListItem",
-                "app/view/override/myDebtListItem.js",
-                "app/view/myDebtListItem.js"
+                "metadata/view/OldmyDebtListItem",
+                "app/view/override/OldmyDebtListItem.js",
+                "app/view/OldmyDebtListItem.js"
             ],
-            "className": "myDebtListItem"
+            "className": "OldmyDebtListItem"
         },
         "d2bdb0dd-5320-4693-8b47-e897fdfdca71": {
             "paths": [
@@ -223,6 +223,14 @@
                 "app/view/myContactListItem.js"
             ],
             "className": "myContactListItem"
+        },
+        "46319a6d-c34e-482c-b917-f96585cf07ed": {
+            "paths": [
+                "metadata/view/myDebtListItem",
+                "app/view/override/myDebtListItem.js",
+                "app/view/myDebtListItem.js"
+            ],
+            "className": "myDebtListItem"
         }
     },
     "viewOrderMap": {
@@ -237,7 +245,8 @@
             "ed8e32a8-2bee-4972-82cc-60fdcab2e506",
             "9290d4e2-55ef-4f81-b844-ff9efd351b2b",
             "8ee13c44-dec0-4ae8-b3a8-ed30c67f9f80",
-            "61f5fbf4-7d85-4d1b-a55a-79cdd0ef214f"
+            "61f5fbf4-7d85-4d1b-a55a-79cdd0ef214f",
+            "46319a6d-c34e-482c-b917-f96585cf07ed"
         ],
         "store": [
             "5c1a3711-4411-4d34-a283-c9149d1e681e",

@@ -70,25 +70,23 @@
             "designerId": "b2155608-ba31-4289-b560-b58c7ddc3cbe"
         },
         {
-            "type": "Ext.dataview.DataView",
+            "type": "Ext.dataview.List",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "baseCls": "x-list",
                 "cls": [
                     "x-list-normal"
                 ],
                 "id": "myDebtDataView1",
                 "itemId": null,
-                "designer|userClassName": "MyDataView",
+                "designer|userClassName": "MyList1",
                 "designer|userAlias": "mydataview",
                 "disableSelection": true,
                 "defaultType": "myDebtListItem",
-                "store": "Debts",
-                "useComponents": true
+                "store": "Debts"
             },
             "designerId": "0a92a9aa-35d9-469a-878f-2160b3fdbc29"
         }

@@ -34,14 +34,15 @@ Ext.application({
         'DebtDetail',
         'Summary',
         'MainView',
-        'myDebtListItem',
+        'OldmyDebtListItem',
         'ContactDetail',
         'OldmyContactListItem',
         'Debts',
         'Prey',
         'PaymentDetail',
         'myPaymentListItem',
-        'myContactListItem'
+        'myContactListItem',
+        'myDebtListItem'
     ],
     controllers: [
         'Contact',

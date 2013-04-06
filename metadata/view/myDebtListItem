@@ -1,133 +1,134 @@
 {
-    "type": "Ext.dataview.component.DataItem",
+    "type": "class",
     "reference": {
         "name": "items",
         "type": "array"
     },
     "codeClass": null,
     "userConfig": {
-        "cls": [
-            "x-list-item"
+        "items": [
+            "[",
+            "            {",
+            "                xtype: 'container',",
+            "                //baseCls: 'x-list-item-label',",
+            "                itemId: 'debtListItemDetail',",
+            "                tpl: [",
+            "                    '<div>   ',",
+            "                    '<div>',",
+            "                    '<span style=\\'color:#777\\'>{[Ext.Date.format(values.date,\\'m/d\\')]}</span>&nbsp;&nbsp;&nbsp;',",
+            "                    '<span class=\\'debt-person-label\\'><tpl for=\"Person\">{name}</tpl></span>',",
+            "                    '<b class=\\'money-label\\' style=\\'float: right;color:red;font-size: .9em;\\'> Loan: {[(values.amount<0)?\\'-\\':\\'\\']}${[Math.abs(values.amount).toFixed(2)]}</b>',",
+            "                    '</div>',",
+            "                    '<div>',",
+            "                    '<span style=\\'color:#ddd\\'>{reason}</span>',",
+            "                    '',",
+            "                    '<b class=\\'money-label\\' style=\\'float: right;color:orange;clear:both;\\'>Balance: {[(values.balance<0)?\\'-\\':\\'\\']}${[Math.abs(values.balance).toFixed(2)]}</b>',",
+            "                    '</div>',",
+            "                    '</div>'",
+            "                ],",
+            "                items: [",
+            "                    {",
+            "                        xtype: 'button',",
+            "                        cls: 'my-buttons',",
+            "                        docked: 'right',",
+            "                        hidden: true,",
+            "                        itemId: 'deleteDebt',",
+            "                        margin: '0 0 0 10px',",
+            "                        maxHeight: '',",
+            "                        iconCls: 'icon-delete',",
+            "                        iconMask: true,",
+            "                        text: 'delete'",
+            "                    }",
+            "                ]",
+            "            }",
+            "        ]"
         ],
-        "minHeight": null,
+        "listeners": [
+            "[",
+            "            {",
+            "                fn: 'onDebtDeleteButtonTap',",
+            "                event: 'tap',",
+            "                delegate: '#deleteDebt'",
+            "            }",
+            "        ]"
+        ],
+        "onItemDisclosure": false,
         "designer|userClassName": "myDebtListItem",
-        "designer|userAlias": "myDebtListItem"
+        "designer|userAlias": "myDebtListItem",
+        "extend": "Ext.dataview.component.ListItem"
     },
-    "designerId": "9290d4e2-55ef-4f81-b844-ff9efd351b2b",
+    "configAlternates": {
+        "items": "array",
+        "listeners": "array",
+        "onItemDisclosure": "boolean"
+    },
+    "designerId": "46319a6d-c34e-482c-b917-f96585cf07ed",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "items",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "listeners",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "onItemDisclosure",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
-            "type": "Ext.Container",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "baseCls": "x-list-item-label",
-                "itemId": "debtListItemDetail",
-                "designer|userClassName": "MyContainer5"
+                "designer|userClassName": "onDebtDeleteButtonTap",
+                "fn": "onDebtDeleteButtonTap",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "        //stops propagation of event, without this sometimes both the itemtap ",
+                    "        //and deletebuttontap would get fired after a previous record is deleted in dataview",
+                    "        e.stopEvent(); ",
+                    "",
+                    "        var dataview = this.up('dataview');",
+                    "        var debt = this.getRecord();",
+                    "",
+                    "        //remove payments from debt",
+                    "        var payments = debt.payments();",
+                    "        var paymentStore = Ext.getStore('Payments');",
+                    "        paymentStore.remove(payments.getData().items); //remove from store",
+                    "        payments.removeAll(); //remove from associated store",
+                    "        paymentStore.sync(); //sync payments with localStorage",
+                    "",
+                    "        //remove debt from debt store, and sync with localStorage",
+                    "        debt.getPerson().debts().remove(debt);",
+                    "        dataview.getStore().remove(debt);",
+                    "        dataview.getStore().sync();",
+                    "",
+                    "        debt.getPerson().calcBalance(); //calc balance",
+                    "",
+                    "        //update the summary",
+                    "        Payback.app.application.getController('Payback.controller.Summary').updateSummary();",
+                    "",
+                    "        button.hide(); //bug in project, sometimes button will appear on other debts when deleting a debt from the contact detail",
+                    "",
+                    "        //refresh DataView",
+                    "        dataview.refresh();",
+                    ""
+                ]
             },
-            "designerId": "e182b6dc-9b37-4657-b2c1-2ed557ef92a1",
-            "cn": [
-                {
-                    "type": "Ext.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "cls": [
-                            "my-buttons"
-                        ],
-                        "docked": "right",
-                        "height": null,
-                        "hidden": true,
-                        "itemId": "deleteDebt",
-                        "margin": "0 0 0 10px",
-                        "maxHeight": "",
-                        "ui": null,
-                        "designer|userClassName": "MyButton12",
-                        "iconCls": "icon-delete",
-                        "iconMask": true,
-                        "text": "delete"
-                    },
-                    "designerId": "c7f2953c-77f8-4a81-8834-87f8e71cd180",
-                    "cn": [
-                        {
-                            "type": "basiceventbinding",
-                            "reference": {
-                                "name": "listeners",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|userClassName": "onDebtDeleteButtonTap",
-                                "fn": "onDebtDeleteButtonTap",
-                                "implHandler": [
-                                    "",
-                                    "//stops propagation of event, without this sometimes both the itemtap ",
-                                    "//and deletebuttontap would get fired after a previous record is deleted in dataview",
-                                    "e.stopEvent(); ",
-                                    "",
-                                    "var dataview = this.up('dataview');",
-                                    "var debt = this.getRecord();",
-                                    "",
-                                    "//remove payments from debt",
-                                    "var payments = debt.payments();",
-                                    "var paymentStore = Ext.getStore('Payments');",
-                                    "paymentStore.remove(payments.getData().items); //remove from store",
-                                    "payments.removeAll(); //remove from associated store",
-                                    "paymentStore.sync(); //sync payments with localStorage",
-                                    "",
-                                    "//remove debt from debt store, and sync with localStorage",
-                                    "debt.getPerson().debts().remove(debt);",
-                                    "dataview.getStore().remove(debt);",
-                                    "dataview.getStore().sync();",
-                                    "",
-                                    "debt.getPerson().calcBalance(); //calc balance",
-                                    "",
-                                    "//update the summary",
-                                    "Payback.app.application.getController('Payback.controller.Summary').updateSummary();",
-                                    "",
-                                    "button.hide(); //bug in project, sometimes button will appear on other debts when deleting a debt from the contact detail",
-                                    "",
-                                    "//refresh DataView",
-                                    "dataview.refresh();"
-                                ],
-                                "name": "tap"
-                            },
-                            "designerId": "01b68854-7c82-4f2f-8e42-6ba98a8b6013"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.XTemplate",
-                    "reference": {
-                        "name": "tpl",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "tpl",
-                        "implHandler": [
-                            "<div>   ",
-                            "<div>",
-                            "<span style='color:#777'>{[Ext.Date.format(values.date,'m/d')]}</span>&nbsp;&nbsp;&nbsp;",
-                            "<span class='debt-person-label'><tpl for=\"Person\">{name}</tpl></span>",
-                            "<b class='money-label' style='float: right;color:red;font-size: .9em;'> Loan: {[(values.amount<0)?'-':'']}${[Math.abs(values.amount).toFixed(2)]}</b>",
-                            "</div>",
-                            "<div>",
-                            "<span style='color:#ddd'>{reason}</span>",
-                            "",
-                            "<b class='money-label' style='float: right;color:orange;clear:both;'>Balance: {[(values.balance<0)?'-':'']}${[Math.abs(values.balance).toFixed(2)]}</b>",
-                            "</div>",
-                            "</div>"
-                        ]
-                    },
-                    "designerId": "d27da4e3-3cc8-48d9-961a-abc4e2fe5c54"
-                }
-            ]
+            "designerId": "962ba38a-2c21-4b96-8cb1-ea48b476272b"
         },
         {
             "type": "basicfunction",
@@ -140,17 +141,23 @@
                 "designer|userClassName": "updateRecord",
                 "fn": "updateRecord",
                 "designer|params": [
-                    "newRecord, oldRecord"
+                    "newRecord",
+                    "oldRecord"
                 ],
                 "implHandler": [
-                    "//this stops propagation of event in deleteButtonTap and allows the record to be deleted from the store",
-                    "this.callParent(arguments);",
-                    "",
-                    "newRecord.getData(true);",
-                    "this.child('component').setData(newRecord.data);"
+                    "        //this stops propagation of event in deleteButtonTap and allows the record to be deleted from the store",
+                    "        this.callParent(arguments);",
+                    "        ",
+                    "        if (!newRecord) {",
+                    "            return; // removal, not update",
+                    "        }",
+                    "        ",
+                    "        newRecord.getData(true);",
+                    "        this.child('component').setData(newRecord.data);",
+                    ""
                 ]
             },
-            "designerId": "216e6096-231e-4ef8-86bb-2784b540264c"
+            "designerId": "c349e559-8262-4490-a9e4-3eb1067541ca"
         }
     ]
 }
